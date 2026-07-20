@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri 'http://localhost:5174/' -UseBasicParsing -TimeoutSec 5; \"STATUS $\\($r.StatusCode\\)\"; \\($r.Content | Select-Object -First 1\\) } catch { \"ERROR $\\($_.Exception.Message\\)\" })",
+      "PowerShell(npm run *)"
+    ]
+  }
+}
