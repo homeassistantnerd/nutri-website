@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
 # Build the SPA and publish the static output to the Nginx web root.
-# Run this on the Debian server, inside the cloned repo, after each git push.
+# Intended VM workflow: git pull --ff-only && bash deploy/deploy.sh
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-if [ ! -d .git ]; then
-  echo "Error: this directory is not a git repo. Clone the GitHub repo on the Debian server first." >&2
-  exit 1
-fi
-
 if [ ! -f package-lock.json ]; then
-  echo "Error: package-lock.json is missing. Run 'npm install' on the dev machine, commit the lockfile, then push." >&2
+  echo "Error: package-lock.json is missing. Commit the lockfile before deploying." >&2
   exit 1
 fi
 
-git pull --ff-only
-npm ci                 # clean, reproducible install from package-lock.json
-npm run build          # produces dist/
+npm ci
+npm run build
 
 sudo mkdir -p /var/www/nutri
 sudo rm -rf /var/www/nutri/*
 sudo cp -r dist/* /var/www/nutri/
+sudo chown -R www-data:www-data /var/www/nutri
 
-echo "Deployed commit $(git rev-parse --short HEAD) to /var/www/nutri"
+sudo nginx -t
+sudo systemctl reload nginx
+
+LAN_IP=$(hostname -I | awk '{print $1}')
+echo "Deployed to /var/www/nutri"
+echo "Open the app from another LAN device at: http://${LAN_IP}"
