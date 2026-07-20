@@ -63,7 +63,7 @@ export default function App() {
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-emerald-50"><Sparkles size={14} />Dự án Khoa học & Kỹ thuật — Tin học / Hệ thống phần mềm</div>
             <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">Phần mềm Tối ưu hóa<br className="hidden sm:block" /> Khẩu phần Dinh dưỡng</h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-emerald-50 sm:text-base">Thiết kế thực đơn đủ dinh dưỡng với chi phí thấp nhất bằng <strong>Quy hoạch Tuyến tính (Linear Programming)</strong> và thuật toán <strong>Simplex</strong>, chạy hoàn toàn trên trình duyệt.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-emerald-50 sm:text-base">Thiết kế thực đơn đủ dinh dưỡng với chi phí thấp nhất bằng <strong>Quy hoạch Tuyến tính (Linear Programming)</strong>, chạy hoàn toàn trên trình duyệt.</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-2">
             {BUOC.map(([so, ten]) => <a key={so} href={so === '01' ? '#muc-tieu' : so === '02' ? '#thuc-pham' : so === '03' ? '#bo-may' : '#ket-qua'} className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm transition hover:bg-white/20"><span className="font-mono text-xs text-emerald-200">{so}</span>{ten}<ChevronRight size={14} /></a>)}
@@ -86,7 +86,7 @@ export default function App() {
             <AlgorithmPanel thucPham={thucPham} mucTieu={mucTieu} ketQua={ketQua} />
             <div className="mt-5 flex justify-center">
               <button onClick={toiUu} disabled={dangToiUu} className="inline-flex min-w-[260px] items-center justify-center gap-3 rounded-xl bg-emerald-600 px-6 py-4 text-base font-bold text-white shadow-lg shadow-emerald-200 transition hover:bg-emerald-700 disabled:cursor-wait disabled:bg-emerald-400">
-                <Calculator size={21} />{dangToiUu ? 'Đang chạy Simplex…' : 'Tối Ưu Hóa Khẩu Phần'}
+                <Calculator size={21} />{dangToiUu ? 'Đang chạy Quy hoạch Tuyến tính…' : 'Tối Ưu Hóa Khẩu Phần'}
               </button>
             </div>
           </section>
@@ -97,7 +97,7 @@ export default function App() {
           </section>
         </div>
       </main>
-      <footer className="mt-8 border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">NutriOpti · Mô hình học thuật sử dụng Quy hoạch Tuyến tính (Simplex) · Dữ liệu dinh dưỡng dùng cho mục đích giáo dục</footer>
+      <footer className="mt-8 border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">NutriOpti · Mô hình học thuật sử dụng Quy hoạch Tuyến tính · Dữ liệu dinh dưỡng dùng cho mục đích giáo dục</footer>
     </div>
   )
 }

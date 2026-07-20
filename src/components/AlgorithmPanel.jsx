@@ -12,9 +12,9 @@ export default function AlgorithmPanel({ thucPham, mucTieu, ketQua }) {
         <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-200"><BrainCircuit size={22} /></span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">Bộ máy tối ưu hóa toán học</p>
-          <h2 className="mt-1 text-xl font-bold text-slate-950">Quy hoạch Tuyến tính — Simplex</h2>
+          <h2 className="mt-1 text-xl font-bold text-slate-950">Quy hoạch Tuyến tính (Linear Programming)</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-            Ứng dụng không chọn món bằng mẹo thủ công. Mỗi thực phẩm là một biến quyết định <strong>xᵢ</strong> biểu diễn số khẩu phần 10g. Thuật toán Simplex tìm tổ hợp có chi phí nhỏ nhất nhưng vẫn thỏa mãn tất cả giới hạn dinh dưỡng.
+            Ứng dụng không chọn món bằng mẹo thủ công. Mỗi thực phẩm là một biến quyết định <strong>xᵢ</strong> biểu diễn số khẩu phần 10g. Mô hình Quy hoạch Tuyến tính tìm tổ hợp có chi phí nhỏ nhất nhưng vẫn thỏa mãn tất cả giới hạn dinh dưỡng.
           </p>
         </div>
       </div>
